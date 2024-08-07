@@ -1,6 +1,7 @@
-from flask import Flask, redirect, request, render_template, url_for
+from flask import Flask, redirect, request, render_template, url_for, flash
 
 app = Flask(__name__, template_folder="./templates")
+app.config['SECRET_KEY'] = "clave_secreta"
 
 messagesList = []
 
@@ -42,8 +43,14 @@ def crearMensaje():
         title = request.form['title']
         content = request.form['content']
 
-        messagesList.append({'title': title, 'content': content})
-        return redirect(url_for('messages'))
+        if not title:
+            flash('El título es obligatorio')
+        if not content:
+            flash('El contenido es obligatorio')
+
+        if title and content:
+            messagesList.append({'title': title, 'content': content})
+            return redirect(url_for('messages'))
 
     return render_template("crearMensaje.html.jinja")
 

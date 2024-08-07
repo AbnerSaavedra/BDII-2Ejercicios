@@ -7,8 +7,7 @@
             <div>
                 <label for="title">Título del mensaje </label><br>
                 <input type="text" name="title" 
-                placeholder="Título del mensaje"
-                value="{{ request.form['title'] }}">
+                placeholder="Título del mensaje">
                 <br>
             </div> 
             <div>
@@ -19,7 +18,6 @@
                 placeholder="Contenido del mensaje"
                 rows="15"
                 cols="60">
-                    {{ request.form['content'] }}
                 </textarea>
                 <br>
             </div>
