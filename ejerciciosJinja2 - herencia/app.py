@@ -1,6 +1,8 @@
-from flask import Flask, request, render_template
+from flask import Flask, redirect, request, render_template, url_for
 
 app = Flask(__name__, template_folder="./templates")
+
+messagesList = []
 
 @app.route("/tasks", methods=["GET"])
 def returnTasks():
@@ -33,6 +35,21 @@ def CV():
 
     return render_template("cv.html.jinja", personalData=personalData, workExperience=workExperience, 
                            skills=skills, education=education)
+
+@app.route('/contact', methods=['GET', 'POST'])
+def crearMensaje():
+    if request.method == "POST":
+        title = request.form['title']
+        content = request.form['content']
+
+        messagesList.append({'title': title, 'content': content})
+        return redirect(url_for('messages'))
+
+    return render_template("crearMensaje.html.jinja")
+
+@app.route("/messages", methods=["GET"])
+def messages():
+    return render_template("messages.html.jinja", messages=messagesList)
 
 if __name__ == "__main__":
     app.run(debug=True)
