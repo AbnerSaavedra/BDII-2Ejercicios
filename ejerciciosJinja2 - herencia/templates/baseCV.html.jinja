@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css"/>
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('returnTasks') }}">Mis tareas</a>
+        <a href="{{ url_for('aboutUs') }}">Acerca de nosotros</a>
+    </nav>
+    <div class="datos_personales">
+        {% block datos_personales %} {% endblock %}
+    </div>
+    <div class="exp_laboral">
+        {% block exp_laboral %} {% endblock %}
+    </div>
+    <div class="educacion">
+        {% block educacion %} {% endblock %}
+    </div>
+    <div class="habilidades">
+        {% block habilidades %} {% endblock %}
+    </div>
+</body>
+</html>

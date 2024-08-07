@@ -1,0 +1,57 @@
+{% extends 'baseCV.html.jinja' %}
+
+{% block datos_personales %}
+  <h1> {% block title %} CV {% endblock %}</h1>
+
+    <h2>Datos personales</h2>
+  <p>
+    {{ personalData.name }}
+  </p>
+  <p>
+    {{ personalData.address }}
+  </p>
+
+{% endblock %}
+
+{% block exp_laboral %}
+
+  <h2>Experiencia laboral</h2>
+        {% for experience in workExperience %}
+        <div class="workExperience">
+            <h3>{{experience.title}}</h3>
+            <p>{{experience.factory}}</p> 
+            <p>{{experience.startDate}}-{{experience.endDate}}</p>
+            <ul>
+                {% for activity in experience.activities %}
+                    <li>{{activity}}</li>
+                {% endfor %}
+            </ul>  
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block educacion %}
+
+  <h2>Educacion</h2>
+        <div class="skills">
+        <ul>
+        {% for ed in education %}
+            <li>{{ed}}</li> 
+        {% endfor %}
+        </ul>
+        </div>
+
+{% endblock %}
+
+{% block habilidades %}
+
+  <h2>Habilidades</h2>
+        <div class="skills">
+        <ul>
+        {% for skill in skills %}
+            <li>{{skill}}</li> 
+    {% endfor %}
+        </ul>
+        </div>
+
+{% endblock %}

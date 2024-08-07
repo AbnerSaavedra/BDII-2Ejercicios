@@ -1,0 +1,12 @@
+{% extends 'base.html.jinja' %}
+
+{% block content %}
+  <h1> {% block title %} Lista de tareas {% endblock %}</h1>
+
+  <ul>
+    {% for task in tasks %}
+        <li>{{ task }}</li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
