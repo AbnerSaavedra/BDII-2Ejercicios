@@ -1,0 +1,24 @@
+{% extends 'base.html.jinja' %}
+
+{% block content %}
+  <h1> {% block title %} Crear elemento {% endblock %}</h1>
+
+  <form method="POST">
+            <div>
+                <label for="nombre">Nombre </label><br>
+                <input type="text" name="nombre" 
+                placeholder="Nombre"
+                value="{{element.nombre}}">
+                <br>
+            </div> 
+            <div>
+                <label for="edad">Edad </label><br>
+                <input type="number" name="edad" 
+                placeholder="Edad"
+                value="{{element.edad}}">
+                <br>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+
+{% endblock %}

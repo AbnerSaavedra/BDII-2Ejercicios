@@ -1,0 +1,13 @@
+{% extends 'base.html.jinja' %}
+
+{% block content %}
+<h1>{% block title %} Detalle elemento {% endblock %}</h1>
+    <ul>
+        <li>
+           Nombre: {{ element.nombre }}
+        </li>
+        <li>
+           Edad: {{ element.edad }}
+        </li>
+    </ul>
+{% endblock %}

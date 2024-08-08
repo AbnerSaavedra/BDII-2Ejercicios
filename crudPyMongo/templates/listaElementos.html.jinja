@@ -1,0 +1,12 @@
+{% extends 'base.html.jinja' %}
+
+{% block content %}
+  <h1> {% block title %} Lista de elementos {% endblock %}</h1>
+
+  <ul>
+    {% for el in elementos %}
+        <li> <a href="/{{el._id}}">{{ el.nombre }}</a> {{el.edad}} <a href="/modificar/{{el._id}}">Modificar</a> <a href="/delete/{{el._id}}">Eliminar</a> </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
