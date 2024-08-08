@@ -1,0 +1,12 @@
+{% extends 'base.html.jinja' %}
+
+{% block content %}
+  <h1> {% block title %} Lista de contactos {% endblock %}</h1>
+
+  <ul>
+    {% for contact in contactList %}
+        <a href="{{url_for("verContacto", nombre=contact.nombre, index=loop.index0)}}">{{ contact.nombre }}  </a><br>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
